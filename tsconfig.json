@@ -12,6 +12,8 @@
     "jsx": "react",
     "rootDir": ".",
     "baseUrl": "src",
+    "strict": true,
+    "strictNullChecks": true,
     "paths": {
       "@/public/*": ["./public/*"],
       "@/components/*": ["./src/components/*"],

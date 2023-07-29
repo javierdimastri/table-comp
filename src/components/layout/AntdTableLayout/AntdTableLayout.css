@@ -1,0 +1,11 @@
+/* Styling for the card container */
+.ant-card {
+    margin: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the card title */
+.ant-card-head-title {
+    font-weight: bold;
+}

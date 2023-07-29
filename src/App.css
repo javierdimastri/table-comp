@@ -26,6 +26,10 @@
   color: #fff;
 }
 
+.clickable-row .ant-table-row:hover{
+  cursor:pointer;
+}
+
 .page-title {
   font-weight: bolder;
   font-size: 1.6em;

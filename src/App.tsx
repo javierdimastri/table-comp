@@ -1,30 +1,31 @@
-import React from "react";
+import React from 'react';
 import './App.css';
-import {Layout} from "antd";
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import SimpleAntdTable from "./components/table/SimpleAntdTable";
+import { Layout } from 'antd';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import AntdTableLayout from './components/layout/AntdTableLayout/AntdTableLayout';
 
 const { Content } = Layout;
-function App() {
-
-    const router = createBrowserRouter([
-        {
-            path: "/",
-            element: <> Welcome </>,
-        },
-        {
-            path: "/table-antd",
-            element: <SimpleAntdTable />,
-        },
-    ]);
+const App: React.FC = () => {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <> Welcome </>
+    },
+    {
+      path: '/table-antd',
+      element: <AntdTableLayout />
+    }
+  ]);
 
   return (
     <div className="app">
         <Content className='main-content'>
-            <RouterProvider router={router} />
+            <div>
+                <RouterProvider key={'1'} router={router} />
+            </div>
         </Content>
     </div>
   );
-}
+};
 
 export default App;
