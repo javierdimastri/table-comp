@@ -57,19 +57,12 @@ const SimpleAntdTable: React.FC<TableProps> = ({ dataSource, onFilterTable }) =>
       dataIndex: 'joinDate',
       key: 'joinDate',
       filters: filterYearOptions(),
-      onFilter: (value: string | number | boolean, record: ColumnDataType) => record.joinDate.getFullYear().toString().startsWith(value.toString()),
       render: (date) => renderDate(date)
     }
   ];
 
   const handleChange = (pagination: TablePaginationConfig, filters: Record<string, FilterValue | null>, sorter: any): void => {
-    console.log({ filters });
-    const isFiltersEmpty = (filters: Record<string, FilterValue | null>): boolean => {
-      return Object.values(filters).every((value) => !value);
-    };
-    if (!isFiltersEmpty(filters)) {
-      onFilterTable(filters);
-    }
+    onFilterTable(filters);
   };
 
   return (<Table
