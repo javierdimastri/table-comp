@@ -20,12 +20,6 @@
   flex-grow: 1;
 }
 
-.table-purple-header.ant-table thead > tr > th,
-.table-purple-header.ant-table-wrapper thead > tr > th {
-  background-color: #501D43;
-  color: #fff;
-}
-
 .clickable-row .ant-table-row:hover{
   cursor:pointer;
 }

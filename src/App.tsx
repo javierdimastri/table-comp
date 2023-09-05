@@ -1,10 +1,9 @@
 import React from 'react';
 import './App.css';
-import { Layout } from 'antd';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AntdTableLayout from './components/layout/AntdTableLayout/AntdTableLayout';
+import MaterialTableLayout from './components/layout/MaterialTableLayout/MaterialTableLayout';
 
-const { Content } = Layout;
 const App: React.FC = () => {
   const router = createBrowserRouter([
     {
@@ -14,16 +13,16 @@ const App: React.FC = () => {
     {
       path: '/table-antd',
       element: <AntdTableLayout />
+    },
+    {
+      path: '/table-mui',
+      element: <MaterialTableLayout />
     }
   ]);
 
   return (
     <div className="app">
-        <Content className='main-content'>
-            <div>
-                <RouterProvider key={'1'} router={router} />
-            </div>
-        </Content>
+      <RouterProvider key={'1'} router={router} />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-export const dataTable = [
+export const dataTable: Data[] = [
   {
     key: '1',
     name: 'Mike',
@@ -77,3 +77,11 @@ export const dataTable = [
     joinDate: new Date(new Date().setDate(new Date().getDate() + 9))
   }
 ];
+
+interface Data {
+  key: string
+  name: string
+  address: string
+  age: number
+  joinDate: Date
+}

@@ -32,11 +32,20 @@
     float: right;
 }
 
+.antd-table-card {
+    width: 100%;
+}
 
 .search-input .ant-input {
     background-color: transparent;
 }
 
+.table-orange-header.ant-table thead > tr > th,
+.table-orange-header.ant-table-wrapper thead > tr > th {
+    background-color: #e37604;
+    color: #fff;
+}
+
 .ant-dropdown-trigger {
-    color: aliceblue !important; /* Set the desired color here */
+    color: aliceblue !important;
 }

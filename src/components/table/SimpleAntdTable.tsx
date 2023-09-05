@@ -42,14 +42,14 @@ const SimpleAntdTable: React.FC<TableProps> = ({ dataSource, onFilterTable }) =>
       dataIndex: 'age',
       key: 'age',
       width: 150,
-      render: (name) => renderData(name)
+      render: (age) => renderData(age)
     },
     {
       title: 'Address',
       align: 'left',
       dataIndex: 'address',
       key: 'address',
-      render: (docType) => renderData(docType)
+      render: (address) => renderData(address)
     },
     {
       title: 'Join Date',
@@ -66,7 +66,7 @@ const SimpleAntdTable: React.FC<TableProps> = ({ dataSource, onFilterTable }) =>
   };
 
   return (<Table
-    className={'clickable-row table-purple-header'}
+    className={'clickable-row table-orange-header'}
     dataSource={dataSource}
     rowKey={'key'}
     columns={columns}
