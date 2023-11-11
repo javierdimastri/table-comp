@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Paper,
   Table,
@@ -20,6 +20,8 @@ import { HomeOutlined } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
 const MaterialTableLayout: React.FC = () => {
+  const [searchKeyword, setSearchKeyword] = useState('');
+  const [data, setData] = useState(dataTable);
   const navigate = useNavigate();
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -28,16 +30,6 @@ const MaterialTableLayout: React.FC = () => {
       color: 'white'
     }
   }));
-
-  const CustomTextField = styled(TextField)({
-    '& .MuiInputBase-root': {
-      border: 'none',
-      borderBottom: '2px solid #d9d9d9'
-    },
-    '& .MuiInputBase-input': {
-      padding: '6px 0'
-    }
-  });
 
   const renderData = (rowData: string | Date): string => {
     if (rowData instanceof Date) {
@@ -83,6 +75,38 @@ const MaterialTableLayout: React.FC = () => {
     }
   ];
 
+  const handleFindData = (typedWord: string): void => {
+    console.log({ typedWord });
+    const filteredData = dataTable.filter(
+      (item) =>
+        item.name.toLowerCase().includes(typedWord.toLowerCase()) ||
+        item.address.toLowerCase().startsWith(typedWord.toLowerCase())
+    );
+    setData(filteredData);
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const handleSearchChange = (value: string | React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+    if (typeof value === 'string') {
+      setSearchKeyword(value);
+      if (value === '') {
+        setData(dataTable);
+      } else {
+        handleFindData(value);
+      }
+    } else {
+      const searchedValue = value.target.value;
+      setSearchKeyword(searchedValue);
+      handleFindData(searchedValue);
+    }
+  };
+
+  // const handleKeyUp = (event: React.KeyboardEvent<HTMLInputElement | HTMLDivElement | any>): void => {
+  //   if (event.key === 'Backspace') {
+  //     handleSearchChange(event.currentTarget.value);
+  //   }
+  // };
+
   const renderPageTitle = (text: string): JSX.Element => {
     return (
       <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -104,9 +128,7 @@ const MaterialTableLayout: React.FC = () => {
         <Grid item xs={12} md={6}>
           {renderPageTitle('Simple Material-UI Table')}
         </Grid>
-        <Grid item xs={12} md={6}>
-          {/* Kolom kedua di sini */}
-        </Grid>
+        <Grid item xs={12} md={6} />
       </Grid>
       <Grid container className='top-section' justifyContent='space-between'>
         <Grid item xs={12} md={6}></Grid>
@@ -114,20 +136,28 @@ const MaterialTableLayout: React.FC = () => {
           <span>{'11 Data Found'}</span>
         </Grid>
         <Grid item xs={12} md={3}>
-          <CustomTextField
-              fullWidth
-              placeholder='Search Name and Address'
-              InputProps={{
-                disableUnderline: true,
-                startAdornment: (
-                    <InputAdornment position='start'>
-                      <BsSearch />
-                    </InputAdornment>
-                )
-              }}
-              onChange={() => {}}
-              onKeyUp={() => {}}
-              value={''}
+          <TextField
+            fullWidth
+            sx={{
+              '& .MuiInputBase-root': {
+                border: 'none',
+                borderBottom: '2px solid #d9d9d9'
+              },
+              '& .MuiInputBase-input': {
+                padding: '6px 0'
+              }
+            }}
+            placeholder='Search Name and Address'
+            value={searchKeyword}
+            InputProps={{
+              disableUnderline: true,
+              startAdornment: (
+                <InputAdornment position='start'>
+                  <BsSearch />
+                </InputAdornment>
+              )
+            }}
+            onChange={handleSearchChange}
           />
         </Grid>
       </Grid>
@@ -151,7 +181,7 @@ const MaterialTableLayout: React.FC = () => {
               </TableHead>
               <TableBody >
                 {
-                  dataTable.map((row) => {
+                  data.map((row) => {
                     return <TableRow hover key={row.key}>
                       {
                         columns.map((column) => {

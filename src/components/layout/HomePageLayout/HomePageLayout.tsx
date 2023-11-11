@@ -1,53 +1,50 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { Button, Typography, Grid } from '@mui/material';
+import { TableChartOutlined } from '@mui/icons-material';
+import { TableOutlined } from '@ant-design/icons';
+import { Button as AntdButton } from 'antd';
+// import './HomePageLayout.css'; // Sesuaikan dengan nama file CSS Anda
 
 const HomePageLayout: React.FC = () => {
-  // const [isDarkMode, setIsDarkMode] = useState(false);
-  //
-  // // Fungsi untuk mengaktifkan mode gelap
-  // const enableDarkMode = (): void => {
-  //   document.body.classList.add('dark-mode');
-  //   setIsDarkMode(true);
-  // };
-  //
-  // // Fungsi untuk menonaktifkan mode gelap
-  // const disableDarkMode = (): void => {
-  //   document.body.classList.remove('dark-mode');
-  //   setIsDarkMode(false);
-  // };
-  //
-  // // Fungsi untuk beralih antara mode gelap dan terang
-  // const toggleDarkMode = (): void => {
-  //   document.body.classList.toggle('dark-mode');
-  //   setIsDarkMode(!isDarkMode);
-  // };
+  const navigate = useNavigate();
 
   return (
-    <div>
-      <h1>Hello there</h1>
-      {/* <div className={`app ${isDarkMode ? 'dark-mode' : ''}`}> */}
-      {/*  /!* Konten aplikasi Anda di sini *!/ */}
-
-      {/*  /!* Tombol untuk mengaktifkan mode gelap *!/ */}
-      {/*  <button onClick={enableDarkMode}>Enable Dark Mode</button> */}
-
-      {/*  /!* Tombol untuk menonaktifkan mode gelap *!/ */}
-      {/*  <button onClick={disableDarkMode}>Disable Dark Mode</button> */}
-
-      {/*  /!* Tombol untuk beralih antara mode gelap dan terang *!/ */}
-      {/*  <button onClick={toggleDarkMode}>Toggle Dark Mode</button> */}
-      {/* </div> */}
-      <nav>
-        <ul>
-          <li>
-            <Link to="/table-antd">Table Ant Design</Link>
-          </li>
-          <li>
-            <Link to="/table-mui">Table MUI</Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <Grid container justifyContent="center" alignItems="center" className="home-page-container">
+      <Grid item xs={12} md={6} sx={{ paddingLeft: '5%' }}>
+        <div className="home-card">
+          <Typography variant="h4" gutterBottom>
+            Welcome to My Example Website
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Explore a few features and content. Start your journey today!
+          </Typography>
+          {/* <Button variant="contained" color="primary" component={Link} to="/table-antd"> */}
+          {/*  Get Started */}
+          {/* </Button> */}
+        </div>
+      </Grid>
+      <Grid item xs={12} md={6}>
+        <div className="component-list">
+          <Typography variant="h5" gutterBottom>
+            My Component List
+          </Typography>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+            <Button color="primary" component={Link} to="/table-mui">
+              <TableChartOutlined /> Material-UI Table
+            </Button>
+            <AntdButton
+              type="link"
+              icon={<TableOutlined />}
+              style={{ marginRight: '8px', fontSize: 'large', paddingLeft: '1.3%' }}
+              onClick={() => { navigate('/table-antd'); }}
+            >
+              Table Antd
+            </AntdButton>
+          </div>
+        </div>
+      </Grid>
+    </Grid>
   );
 };
 
