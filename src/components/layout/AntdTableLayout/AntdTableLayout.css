@@ -49,3 +49,57 @@
 .ant-dropdown-trigger {
     color: aliceblue !important;
 }
+
+/* Dark mode styles */
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Styling for the card container in dark mode */
+body.dark-mode .ant-card {
+    background-color: #1f1f1f;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+/* Styling for the card title in dark mode */
+body.dark-mode .ant-card-head-title {
+    color: #ffffff;
+}
+
+/* Styling for the top section in dark mode */
+body.dark-mode .top-section {
+    margin-bottom: 16px;
+}
+
+/* Styling for the search count in dark mode */
+body.dark-mode .search-count {
+    color: #ffffff;
+}
+
+/* Styling for the search input in dark mode */
+body.dark-mode .search-input {
+    background-color: #1f1f1f;
+    border: none;
+    border-bottom: 2px solid #444;
+    color: #ffffff;
+}
+
+/* Styling for the antd table card in dark mode */
+body.dark-mode .antd-table-card {
+    width: 100%;
+    background-color: #1f1f1f;
+}
+
+/* Styling for the table header in dark mode */
+body.dark-mode .table-orange-header.ant-table thead > tr > th,
+body.dark-mode .table-orange-header.ant-table-wrapper thead > tr > th {
+    background-color: #3d3d3d;
+    color: #fff;
+}
+
+/* Styling for the ant-dropdown-trigger in dark mode */
+body.dark-mode .ant-dropdown-trigger {
+    color: #fff !important;
+}

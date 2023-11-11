@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { Card, Col, Input, Row } from 'antd';
+import { Button, Card, Col, Input, Row } from 'antd';
 import { BsSearch } from 'react-icons/bs';
 import SimpleAntdTable from '../../table/SimpleAntdTable';
 import './AntdTableLayout.css';
 import { dataTable } from '../../constants/constant';
 import { isEmpty } from 'lodash';
+import { useNavigate } from 'react-router-dom';
+import { HomeOutlined } from '@ant-design/icons';
 
 const AntdTableLayout: React.FC = () => {
   const [searchKeyword, setSearchKeyword] = useState('');
   const [data, setData] = useState(dataTable);
+  const navigate = useNavigate();
 
   const handleFindData = (typedWord: string): void => {
     const filteredData = dataTable.filter(
@@ -61,9 +64,10 @@ const AntdTableLayout: React.FC = () => {
   const renderPageTitle = (text: string): JSX.Element => {
     return (
             <Row className={'page-title'} justify='space-between'>
-                <div>
-                    {text}
-                </div>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <Button type="link" icon={<HomeOutlined />} onClick={() => { navigate('/'); }} style={{ marginRight: '8px' }} />
+                <span style={{ fontSize: '18px', fontWeight: 'bold' }}>{text}</span>
+              </div>
             </Row>
     );
   };

@@ -9,14 +9,19 @@ import {
   TableRow,
   styled,
   tableCellClasses,
-  Grid, TextField, InputAdornment, Card, CardHeader
+  Grid, TextField, InputAdornment, Card, CardHeader,
+  IconButton
 } from '@mui/material';
 import { dataTable } from '../../constants/constant';
 import moment from 'moment/moment';
 import { DATE_MONTH_YEAR_FORMAT } from '../../../constants/constants';
 import { BsSearch } from 'react-icons/bs';
+import { HomeOutlined } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 const MaterialTableLayout: React.FC = () => {
+  const navigate = useNavigate();
+
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: '#501D43',
@@ -80,10 +85,15 @@ const MaterialTableLayout: React.FC = () => {
 
   const renderPageTitle = (text: string): JSX.Element => {
     return (
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <IconButton onClick={() => { navigate('/'); }}>
+          <HomeOutlined />
+        </IconButton>
         <CardHeader
-            title={text}
-            className='title'
+          title={text}
+          className='title'
         />
+      </div>
     );
   };
 
