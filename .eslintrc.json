@@ -4,7 +4,7 @@
         "es2021": true
     },
     "extends": [
-        "standard-with-typescript",
+        "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended"
     ],
     "parserOptions": {
@@ -13,7 +13,8 @@
         "project": ["tsconfig.json"]
     },
     "plugins": [
-        "react"
+        "react",
+        "@typescript-eslint"
     ],
     "rules": {
         "comma-dangle": "off",
