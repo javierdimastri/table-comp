@@ -1,0 +1,11 @@
+.ant-table-home-button {
+    /* margin-right: 8%; */
+    font-size: large;
+    padding-left: 1.5%;
+  }
+  
+  @media (max-width: 600px) {
+    .ant-table-home-button {
+      padding-left: 2.75%;
+    }
+  }

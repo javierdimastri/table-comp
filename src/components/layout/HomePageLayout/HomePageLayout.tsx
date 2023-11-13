@@ -2,9 +2,10 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Typography, Grid } from '@mui/material';
 import { TableChartOutlined } from '@mui/icons-material';
+import CreateIcon from '@mui/icons-material/Create';
 import { TableOutlined } from '@ant-design/icons';
 import { Button as AntdButton } from 'antd';
-// import './HomePageLayout.css'; // Sesuaikan dengan nama file CSS Anda
+import './HomePageLayout.css';
 
 const HomePageLayout: React.FC = () => {
   const navigate = useNavigate();
@@ -35,12 +36,15 @@ const HomePageLayout: React.FC = () => {
             </Button>
             <AntdButton
               type="link"
+              className="ant-table-home-button"
               icon={<TableOutlined />}
-              style={{ marginRight: '8px', fontSize: 'large', paddingLeft: '1.3%' }}
               onClick={() => { navigate('/table-antd'); }}
             >
               Table Antd
             </AntdButton>
+            <Button color="primary" component={Link} to="/user-form">
+              <CreateIcon /> Create Form with Material-UI
+            </Button>
           </div>
         </div>
       </Grid>

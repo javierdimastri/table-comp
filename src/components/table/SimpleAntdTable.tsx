@@ -2,10 +2,10 @@ import React from 'react';
 import { Table } from 'antd';
 import moment from 'moment';
 import { DATE_MONTH_YEAR_FORMAT } from '../../constants/constants';
-import { type ColumnsType, type TablePaginationConfig } from 'antd/lib/table';
+import { ColumnsType, TablePaginationConfig } from 'antd/lib/table';
 import { isEmpty } from 'lodash';
 import '../layout/AntdTableLayout/AntdTableLayout.css';
-import { type FilterValue } from 'antd/lib/table/interface';
+import { FilterValue } from 'antd/lib/table/interface';
 
 const SimpleAntdTable: React.FC<TableProps> = ({ dataSource, onFilterTable }) => {
   const renderData = (rowData: string): string => {
