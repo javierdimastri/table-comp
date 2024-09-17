@@ -1,10 +1,11 @@
+import { TableOutlined } from '@ant-design/icons';
+import { TableChartOutlined } from '@mui/icons-material';
+import Calculate from '@mui/icons-material/Calculate';
+import CreateIcon from '@mui/icons-material/Create';
+import { Button, Grid, Typography } from '@mui/material';
+import { Button as AntdButton } from 'antd';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Button, Typography, Grid } from '@mui/material';
-import { TableChartOutlined } from '@mui/icons-material';
-import CreateIcon from '@mui/icons-material/Create';
-import { TableOutlined } from '@ant-design/icons';
-import { Button as AntdButton } from 'antd';
 import './HomePageLayout.css';
 
 const HomePageLayout: React.FC = () => {
@@ -44,6 +45,9 @@ const HomePageLayout: React.FC = () => {
             </AntdButton>
             <Button color="primary" component={Link} to="/user-form">
               <CreateIcon /> Create Form with Material-UI
+            </Button>
+            <Button color='secondary' component={Link} to="/crc32">
+            <Calculate /> CRC32 Calculator
             </Button>
           </div>
         </div>

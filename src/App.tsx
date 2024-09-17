@@ -1,10 +1,11 @@
-import React from 'react';
-import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AntdTableLayout from './components/layout/AntdTableLayout/AntdTableLayout';
-import MaterialTableLayout from './components/layout/MaterialTableLayout/MaterialTableLayout';
-import HomePageLayout from './components/layout/HomePageLayout/HomePageLayout';
+import CRC32CalculatorForm from 'components/layout/CRC32CalculatorForm/CRC32CalculatorForm';
 import UserFormLayout from 'components/layout/UserFormLayout/UserFormLayout';
+import React from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import './App.css';
+import AntdTableLayout from './components/layout/AntdTableLayout/AntdTableLayout';
+import HomePageLayout from './components/layout/HomePageLayout/HomePageLayout';
+import MaterialTableLayout from './components/layout/MaterialTableLayout/MaterialTableLayout';
 
 const App: React.FC = () => {
   // const router = createBrowserRouter([
@@ -32,6 +33,7 @@ const App: React.FC = () => {
         <Route path="/table-mui" element={<MaterialTableLayout />} />
         <Route path="/table-mui" element={<MaterialTableLayout />} />
         <Route path="/user-form" element={<UserFormLayout />} />
+        <Route path="/crc32" element={<CRC32CalculatorForm />} />
       </Routes>
     </Router>
     </div>
